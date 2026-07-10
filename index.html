@@ -251,7 +251,7 @@
 
 <script>
 // ======= CẤU HÌNH: dán URL Web App Apps Script vào đây =======
-const APP_URL = "https://script.google.com/macros/s/AKfycbzl4MrN4wt1MQ6AoZW4Aw1LvrXUjskTJF3pQ7gR_icysI-ktg7ItSWpDSNoAqbQsi_8/exec";
+const APP_URL = "DÁN_URL_WEB_APP_CỦA_BẠN_VÀO_ĐÂY";
 // ===============================================================
 
 let services = [];
@@ -349,9 +349,13 @@ loadRecent();
 document.getElementById('billForm').addEventListener('submit', async (e) => {
   e.preventDefault();
 
+  // Tự động chốt dịch vụ đang gõ dở (nếu nhân viên quên bấm nút + hoặc Enter)
+  if(serviceInput.value.trim()){ addService(); }
+
   if(!priceInput.value){ showToast('Vui lòng nhập giá tiền', 'error'); return; }
   if(!selectedPayment){ showToast('Vui lòng chọn hình thức thanh toán', 'error'); return; }
   if(!selectedStaff){ showToast('Vui lòng chọn nhân viên', 'error'); return; }
+  if(services.length === 0){ showToast('Vui lòng nhập ít nhất 1 dịch vụ', 'error'); return; }
 
   const payload = {
     txId: 'tx_' + Date.now() + '_' + Math.random().toString(36).slice(2,8),
