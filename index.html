@@ -33,7 +33,6 @@
   }
   .wrap{max-width:520px; margin:0 auto; padding:28px 20px 20px;}
 
-  /* Logo */
   .brand{text-align:center; margin-bottom:26px;}
   .brand h1{
     font-family:'Playfair Display', serif;
@@ -43,17 +42,8 @@
     margin:0;
     color:var(--accent-dark);
   }
-  .brand .stroke{
-    width:120px; height:10px; margin:2px auto 6px;
-    display:block;
-  }
-  .brand p{
-    margin:0;
-    font-size:11px;
-    letter-spacing:4px;
-    color:var(--muted);
-    text-transform:uppercase;
-  }
+  .brand .stroke{width:120px; height:10px; margin:2px auto 6px; display:block;}
+  .brand p{margin:0; font-size:11px; letter-spacing:4px; color:var(--muted); text-transform:uppercase;}
 
   .card{
     background:var(--card);
@@ -64,13 +54,7 @@
     box-shadow:0 4px 18px rgba(169,119,107,0.06);
   }
 
-  label{
-    display:block;
-    font-size:13px;
-    font-weight:600;
-    color:var(--accent-dark);
-    margin-bottom:8px;
-  }
+  label{display:block; font-size:13px; font-weight:600; color:var(--accent-dark); margin-bottom:8px;}
   .field{margin-bottom:20px;}
   .field:last-child{margin-bottom:0;}
 
@@ -89,87 +73,64 @@
   input:focus, textarea:focus{border-color:var(--accent);}
   textarea{resize:vertical; min-height:60px;}
 
-  .price-row{display:flex; align-items:center; gap:10px;}
-  .price-row input{flex:1;}
-  .price-preview{
-    font-size:13px; color:var(--muted); margin-top:6px;
-  }
-  .price-preview b{color:var(--accent-dark);}
-
-  /* Tag input dịch vụ */
-  .tag-input-row{display:flex; gap:8px;}
-  .tag-input-row input{flex:1;}
+  /* Dịch vụ + giá tiền theo dòng */
+  .item-input-row{display:flex; gap:8px;}
+  .item-input-row input.service-name{flex:1.4;}
+  .item-input-row input.service-price{flex:1;}
   .btn-add{
     border:none; background:var(--chip); color:var(--accent-dark);
     border-radius:12px; padding:0 18px; font-weight:600; font-size:20px;
-    cursor:pointer;
+    cursor:pointer; flex-shrink:0;
   }
-  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;}
-  .tag{
-    background:var(--chip); color:var(--accent-dark);
-    border-radius:999px; padding:6px 10px 6px 14px;
-    font-size:13px; display:flex; align-items:center; gap:6px;
+  .price-hint{font-size:12px; color:var(--muted); margin-top:6px;}
+
+  .item-list{margin-top:14px; display:flex; flex-direction:column; gap:8px;}
+  .item-row{
+    display:flex; align-items:center; justify-content:space-between;
+    background:var(--chip); border-radius:12px; padding:9px 8px 9px 14px;
   }
-  .tag button{
+  .item-row .item-name{font-size:14px; color:var(--accent-dark); font-weight:500;}
+  .item-row .item-right{display:flex; align-items:center; gap:10px;}
+  .item-row .item-price{font-size:14px; font-weight:700; color:var(--accent-dark);}
+  .item-row button{
     border:none; background:none; color:var(--accent-dark);
-    font-size:15px; cursor:pointer; opacity:.6; padding:0 2px;
+    font-size:17px; cursor:pointer; opacity:.55; padding:0 2px;
   }
 
-  /* Toggle buttons */
+  .total-row{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-top:14px; padding-top:14px; border-top:1.5px dashed var(--border);
+  }
+  .total-row span:first-child{font-size:14px; color:var(--muted); font-weight:600;}
+  .total-row span:last-child{font-size:19px; font-weight:700; color:var(--accent-dark); font-family:'Playfair Display', serif;}
+
   .choice-grid{display:flex; gap:10px; flex-wrap:wrap;}
   .choice{
-    flex:1; min-width:90px;
-    text-align:center;
-    padding:11px 8px;
-    border-radius:12px;
-    border:1.5px solid var(--border);
-    background:#FFFDFC;
-    font-size:14px; font-weight:500;
-    color:var(--text);
-    cursor:pointer;
-    user-select:none;
-    transition:.15s;
+    flex:1; min-width:90px; text-align:center; padding:11px 8px;
+    border-radius:12px; border:1.5px solid var(--border); background:#FFFDFC;
+    font-size:14px; font-weight:500; color:var(--text); cursor:pointer;
+    user-select:none; transition:.15s;
   }
-  .choice.selected{
-    background:var(--accent);
-    border-color:var(--accent);
-    color:#fff;
-    font-weight:600;
-  }
+  .choice.selected{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600;}
 
   .btn-submit{
-    width:100%;
-    border:none;
-    background:var(--accent-dark);
-    color:#fff;
-    font-family:inherit;
-    font-size:16px;
-    font-weight:600;
-    letter-spacing:.5px;
-    padding:16px;
-    border-radius:14px;
-    cursor:pointer;
-    margin-top:4px;
+    width:100%; border:none; background:var(--accent-dark); color:#fff;
+    font-family:inherit; font-size:16px; font-weight:600; letter-spacing:.5px;
+    padding:16px; border-radius:14px; cursor:pointer; margin-top:4px;
   }
   .btn-submit:active{transform:scale(0.98);}
   .btn-submit:disabled{opacity:.5;}
 
-  /* Recent list */
-  .recent h2{
-    font-size:13px; letter-spacing:1px; text-transform:uppercase;
-    color:var(--muted); margin:0 0 10px 4px;
-  }
+  .recent h2{font-size:13px; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin:0 0 10px 4px;}
   .recent-item{
-    background:var(--card); border:1px solid var(--border);
-    border-radius:14px; padding:12px 16px; margin-bottom:8px;
-    display:flex; justify-content:space-between; align-items:center;
+    background:var(--card); border:1px solid var(--border); border-radius:14px;
+    padding:12px 16px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;
   }
   .recent-item .info{font-size:13px; color:var(--text);}
   .recent-item .info .name{font-weight:600;}
   .recent-item .info .sub{color:var(--muted); font-size:12px;}
   .recent-item .price{font-weight:700; color:var(--accent-dark); font-size:14px;}
 
-  /* Toast */
   #toast{
     position:fixed; left:50%; bottom:24px; transform:translateX(-50%) translateY(20px);
     background:var(--text); color:#fff; padding:12px 22px; border-radius:12px;
@@ -197,20 +158,15 @@
     </div>
 
     <div class="field">
-      <label>Dịch vụ</label>
-      <div class="tag-input-row">
-        <input type="text" id="serviceInput" placeholder="VD: Sơn gel" autocomplete="off">
+      <label>Dịch vụ &amp; giá tiền</label>
+      <div class="item-input-row">
+        <input type="text" class="service-name" id="serviceInput" placeholder="Tên dịch vụ" autocomplete="off">
+        <input type="number" class="service-price" id="servicePriceInput" placeholder="Giá (x1000)" inputmode="numeric">
         <button type="button" class="btn-add" id="addServiceBtn">+</button>
       </div>
-      <div class="tags" id="tagList"></div>
-    </div>
-
-    <div class="field">
-      <label>Giá tiền (nhập x1000)</label>
-      <div class="price-row">
-        <input type="number" id="price" placeholder="VD: 150" inputmode="numeric">
-      </div>
-      <div class="price-preview">Thành tiền: <b id="pricePreview">0 ₫</b></div>
+      <div class="price-hint">Nhập 150 = 150.000đ. Thêm từng dịch vụ một, mỗi dịch vụ 1 giá riêng.</div>
+      <div class="item-list" id="itemList"></div>
+      <div class="total-row"><span>Tổng cộng</span><span id="totalPreview">0 ₫</span></div>
     </div>
 
     <div class="field">
@@ -254,48 +210,57 @@
 const APP_URL = "https://script.google.com/macros/s/AKfycbzl4MrN4wt1MQ6AoZW4Aw1LvrXUjskTJF3pQ7gR_icysI-ktg7ItSWpDSNoAqbQsi_8/exec";
 // ===============================================================
 
-let services = [];
+let items = []; // { service, price } — price tính theo đơn vị x1000 (chưa nhân 1000)
 let selectedPayment = null;
 let selectedStaff = null;
 
 const serviceInput = document.getElementById('serviceInput');
-const tagList = document.getElementById('tagList');
-const priceInput = document.getElementById('price');
-const pricePreview = document.getElementById('pricePreview');
+const servicePriceInput = document.getElementById('servicePriceInput');
+const itemList = document.getElementById('itemList');
+const totalPreview = document.getElementById('totalPreview');
 
-function renderTags(){
-  tagList.innerHTML = '';
-  services.forEach((s, i) => {
+function formatVnd(n){ return Number(n).toLocaleString('vi-VN') + ' ₫'; }
+
+function renderItems(){
+  itemList.innerHTML = '';
+  items.forEach((it, i) => {
     const el = document.createElement('div');
-    el.className = 'tag';
-    el.innerHTML = `<span>${s}</span><button type="button" data-i="${i}">×</button>`;
-    tagList.appendChild(el);
+    el.className = 'item-row';
+    el.innerHTML = `
+      <span class="item-name">${it.service}</span>
+      <span class="item-right">
+        <span class="item-price">${formatVnd(it.price * 1000)}</span>
+        <button type="button" data-i="${i}">×</button>
+      </span>`;
+    itemList.appendChild(el);
   });
-  tagList.querySelectorAll('button').forEach(btn => {
+  itemList.querySelectorAll('button').forEach(btn => {
     btn.addEventListener('click', () => {
-      services.splice(Number(btn.dataset.i), 1);
-      renderTags();
+      items.splice(Number(btn.dataset.i), 1);
+      renderItems();
     });
   });
+  const total = items.reduce((s, it) => s + Number(it.price) * 1000, 0);
+  totalPreview.textContent = formatVnd(total);
 }
 
-function addService(){
-  const v = serviceInput.value.trim();
-  if(!v) return;
-  services.push(v);
+function addServiceItem(){
+  const name = serviceInput.value.trim();
+  const price = servicePriceInput.value;
+  if(!name){ showToast('Nhập tên dịch vụ trước đã nhé', 'error'); return; }
+  if(!price){ showToast('Nhập giá tiền cho dịch vụ này', 'error'); return; }
+  items.push({ service: name, price: Number(price) });
   serviceInput.value = '';
-  renderTags();
+  servicePriceInput.value = '';
+  renderItems();
   serviceInput.focus();
 }
 
-document.getElementById('addServiceBtn').addEventListener('click', addService);
-serviceInput.addEventListener('keydown', e => {
-  if(e.key === 'Enter'){ e.preventDefault(); addService(); }
-});
-
-priceInput.addEventListener('input', () => {
-  const v = Number(priceInput.value || 0) * 1000;
-  pricePreview.textContent = v.toLocaleString('vi-VN') + ' ₫';
+document.getElementById('addServiceBtn').addEventListener('click', addServiceItem);
+[serviceInput, servicePriceInput].forEach(inp => {
+  inp.addEventListener('keydown', e => {
+    if(e.key === 'Enter'){ e.preventDefault(); addServiceItem(); }
+  });
 });
 
 function setupChoiceGrid(gridId, onSelect){
@@ -327,14 +292,16 @@ function loadRecent(){
     return;
   }
   list.slice(0,5).forEach(item => {
+    const total = item.items.reduce((s, it) => s + Number(it.price) * 1000, 0);
+    const serviceNames = item.items.map(it => it.service).join(', ');
     const div = document.createElement('div');
     div.className = 'recent-item';
     div.innerHTML = `
       <div class="info">
         <div class="name">${item.customerName || '(Không tên)'}</div>
-        <div class="sub">${item.employee} · ${item.services}</div>
+        <div class="sub">${item.employee} · ${serviceNames}</div>
       </div>
-      <div class="price">${Number(item.price*1000).toLocaleString('vi-VN')} ₫</div>`;
+      <div class="price">${formatVnd(total)}</div>`;
     el.appendChild(div);
   });
 }
@@ -349,19 +316,17 @@ loadRecent();
 document.getElementById('billForm').addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  // Tự động chốt dịch vụ đang gõ dở (nếu nhân viên quên bấm nút + hoặc Enter)
-  if(serviceInput.value.trim()){ addService(); }
+  // Tự động chốt dòng dịch vụ đang gõ dở (nếu nhân viên quên bấm + hoặc Enter)
+  if(serviceInput.value.trim() && servicePriceInput.value){ addServiceItem(); }
 
-  if(!priceInput.value){ showToast('Vui lòng nhập giá tiền', 'error'); return; }
+  if(items.length === 0){ showToast('Vui lòng thêm ít nhất 1 dịch vụ kèm giá', 'error'); return; }
   if(!selectedPayment){ showToast('Vui lòng chọn hình thức thanh toán', 'error'); return; }
   if(!selectedStaff){ showToast('Vui lòng chọn nhân viên', 'error'); return; }
-  if(services.length === 0){ showToast('Vui lòng nhập ít nhất 1 dịch vụ', 'error'); return; }
 
   const payload = {
-    txId: 'tx_' + Date.now() + '_' + Math.random().toString(36).slice(2,8),
+    billId: 'bill_' + Date.now() + '_' + Math.random().toString(36).slice(2,8),
     customerName: document.getElementById('customerName').value.trim(),
-    services: services.join(', '),
-    price: priceInput.value,
+    items: items,
     payment: selectedPayment,
     employee: selectedStaff,
     note: document.getElementById('note').value.trim()
@@ -385,10 +350,9 @@ document.getElementById('billForm').addEventListener('submit', async (e) => {
       showToast('Đã lưu hoá đơn ✓', 'success');
       saveRecent(payload);
       document.getElementById('billForm').reset();
-      services = []; renderTags();
+      items = []; renderItems();
       selectedPayment = null; selectedStaff = null;
       document.querySelectorAll('.choice.selected').forEach(c => c.classList.remove('selected'));
-      pricePreview.textContent = '0 ₫';
     } else {
       throw new Error(result.message || 'Lỗi không xác định');
     }
